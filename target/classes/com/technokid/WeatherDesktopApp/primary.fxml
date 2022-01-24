@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.technokid.WeatherDesktopApp.Controller">
+   <children>
+      <ImageView fx:id="backImg" fitHeight="900.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="https://s.w-x.co/WeatherImages_Web/WeatherImage_Sunny-day_4.jpg?crop=16:9&amp;width=1200&amp;height=900&amp;format=pjpg&amp;auto=webp&amp;quality=100" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="-127.0" layoutY="-86.0" opacity="0.5" prefHeight="109.0" prefWidth="1200.0" style="-fx-background-color: #0E1C2F;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <VBox alignment="TOP_CENTER" layoutX="6.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="76.0" prefWidth="1147.0" spacing="250.0" style="-fx-background-color: transparent; -fx-background-radius: 20px;">
+               <children>
+                  <AnchorPane prefHeight="49.0" prefWidth="525.0">
+                     <children>
+                        <TextField fx:id="inpLocation" layoutX="33.0" layoutY="13.0" onAction="#loadNewLocationData" prefHeight="50.0" prefWidth="459.0" promptText="Search City" style="-fx-background-color: #FFFFFF; -fx-border-width: 0.5;" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="13.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fx:id="loader" fitHeight="50.0" fitWidth="35.0" layoutX="447.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ripple.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
+            <AnchorPane fx:id="title" prefHeight="196.0" prefWidth="1100.0" style="-fx-background-radius: 20px;">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="50.0" />
+               </VBox.margin>
+               <children>
+                  <ImageView fx:id="titleBg" fitHeight="250.0" fitWidth="1100.0" layoutX="150.0" layoutY="25.0" pickOnBounds="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <image>
+                        <Image url="https://s.w-x.co/WeatherImages_Web/WeatherImage_Sunny-day_4.jpg?crop=16:9&amp;width=1200&amp;height=900&amp;format=pjpg&amp;auto=webp&amp;quality=100" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane opacity="0.5" prefHeight="50.0" prefWidth="1100.0" style="-fx-background-color: #191B36;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Label fx:id="location" alignment="CENTER" prefHeight="50.0" prefWidth="215.0" text="Shrigonda, Maharashtra" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="time" layoutX="215.0" prefHeight="50.0" prefWidth="215.0" text="As of 16:38 IST" textFill="WHITE" AnchorPane.rightAnchor="670.0" />
+                  <HBox prefHeight="250.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox prefHeight="161.0" prefWidth="906.0">
+                           <children>
+                              <Label fx:id="headerTemp" prefHeight="86.0" prefWidth="115.0" text="25°" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="75.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="headerStat" text="Sunny" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="headerStatDesc" text="Day 26° • Night 11°" textFill="WHITE" />
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="161.0" prefWidth="1080.0">
+                           <children>
+                              <ImageView fitHeight="160.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </HBox>
+                        <VBox alignment="CENTER_LEFT" prefHeight="250.0" prefWidth="818.0" spacing="5.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10px;">
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="217.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Air Quality Index">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="qualityValue" text="100">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <Text fx:id="airQualityHeader" strokeType="OUTSIDE" strokeWidth="0.0" text="Moderate">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="airQualityDesc" strokeType="OUTSIDE" strokeWidth="0.0" text="May cause breathing discomfort for people with prolonged exposure, and discomfort to people with heart disease." wrappingWidth="200.0" />
+                              <ProgressBar fx:id="airQualityProgress" prefWidth="200.0" progress="0.22" style="-fx-background-color: #FFFFFF;" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="60.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="main" prefHeight="460.0" prefWidth="1100.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20px;">
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+               <children>
+                  <VBox alignment="CENTER_LEFT" layoutX="7.0" prefHeight="460.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label fx:id="mainLocDesc" prefHeight="50.0" prefWidth="1102.0" text="Weather Today in Shrigonda, Maharashtra">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="mainTemp" prefHeight="86.0" prefWidth="115.0" text="25°">
+                           <font>
+                              <Font name="System Bold" size="75.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="26.0" prefWidth="115.0" text="Feels Like">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" prefHeight="319.0" prefWidth="1060.0">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="319.0" prefWidth="301.0">
+                                 <children>
+                                    <Line endX="205.0" endY="1.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@temp.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="High/Low">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="highLow" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="--/11°">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@hum.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Humidity">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="humidity" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="38%">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@press.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Pressure">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="pressure" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="1007.8 mb">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@vis.png" />
+                                             </image></ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Visibility">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="visibility" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="14.48 km">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="319.0" prefWidth="45.0" />
+                              <VBox alignment="CENTER_LEFT" prefHeight="319.0" prefWidth="284.0">
+                                 <children>
+                                    <Line endX="205.0" endY="1.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@wind.gif" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Wind">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="wind" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="21 km/h">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@dwp.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Dew Point">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="dwp" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="9°">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@uv.gif" />
+                                             </image></ImageView>
+                                          <Label prefHeight="17.0" prefWidth="103.0" text="Uv Index">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="uv" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="1 of 10">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                    <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                                       <children>
+                                          <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@moonp.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label prefHeight="20.0" prefWidth="137.0" text="Moon Phase">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="moonP" alignment="CENTER_RIGHT" prefHeight="17.0" prefWidth="209.0" text="Waning Gibbous">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <Line endX="205.0" endY="2.0" startX="-100.0" stroke="#c3c3c3" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </children>
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
